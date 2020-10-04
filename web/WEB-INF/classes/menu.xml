@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="xsd/menu.xsd">
+	
+	<pantalla nombre="GenMenu" acceder="escribir:call g4gen/g4gencl, enter, enter" salir="escribir:999, enter">
+	
+		<identificador clave="GENMENU" fila="0" columna="1" dimension="7"/>
+	
+	</pantalla>
+	
+	
+	<pantalla nombre="DialogoTercero" acceder="escribir:MTGR, enter" salir="F3" pantallasAcceso="GenMenu" pantallaSalida="GenMenu">
+	
+		<identificador clave="Nacionalidad" fila="11" columna="26" dimension="12"/>
+	
+		<acciones>
+		
+			<accion nombre="leerTercero" clase="com.gestion400.g4genwrapper.acciones.wrapper.LeerTerceroWrapper"/>
+			<accion nombre="guardarTercero" clase="com.gestion400.g4genwrapper.acciones.wrapper.GuardarTerceroWrapper"/>
+			<accion nombre="borrarTercero" clase="com.gestion400.g4genwrapper.acciones.wrapper.BorrarTerceroWrapper"/>
+		
+		</acciones>
+		
+		<campos>
+		
+			<campo nombre="nombre" fila="3" columna="44" dimension="30" />
+			<campo nombre="nif" fila="12" columna="44" dimension="10" />
+			
+		</campos>
+	
+	</pantalla>
+	
+	<pantalla nombre="DetalleTercero" acceder="F6" salir="F12" pantallasAcceso="DialogoTercero" pantallaSalida="DialogoTercero">
+	
+	
+		<identificador clave="Nacionalidad" fila="8" columna="1" dimension="12"/>
+		
+		<campos>
+		
+			<campo nombre="nif" fila="2" columna="19" dimension="10" />
+			<campo nombre="naturaleza" fila="3" columna="19" dimension="1" />
+			<campo nombre="nombreCompleto" fila="4" columna="19" dimension="60" />
+			<campo nombre="pais" fila="8" columna="19" dimension="3" />
+			<campo nombre="nombre" fila="9" columna="19" dimension="20" />
+			<campo nombre="primerApellido" fila="10" columna="19" dimension="25" />
+			<campo nombre="segundoApellido" fila="11" columna="19" dimension="25" />
+			<campo nombre="telefono" fila="14" columna="19" dimension="15" />
+			<campo nombre="email" fila="15" columna="19" dimension="60" />
+			<campo nombre="alta" fila="9" columna="60" dimension="10" />
+			<campo nombre="baja" fila="10" columna="60" dimension="10" />
+			<campo nombre="modificacion" fila="11" columna="60" dimension="10" />
+			
+		</campos>
+	
+	</pantalla>
+	
+	<pantalla nombre="GestionDomicilioTercero" acceder="F4" salir="F12" pantallasAcceso="DetalleTercero" pantallaSalida="DetalleTercero">
+	
+		<identificador clave="GNTDIM" fila="0" columna="58" dimension="6"/>
+		
+		<acciones>
+		
+			<accion nombre="leerDomicilio" clase="com.gestion400.g4genwrapper.acciones.wrapper.LeerDomicilioWrapper"/>
+		
+		</acciones>
+		
+		<campos>
+		
+			<campo nombre="domicilio" fila="14" columna="2" dimension="53" />
+
+		</campos>
+		
+	</pantalla>
+	
+	<pantalla nombre="ConsultaDomicilioTercero" acceder="escribir:X, enter, F4" salir="F12, F12" pantallasAcceso="GestionDomicilioTercero" pantallaSalida="GestionDomicilioTercero">
+	
+	
+		<identificador clave="GNDIRM" fila="0" columna="58" dimension="6"/>
+		
+		<campos>
+			
+			<campo nombre="via" fila="8" columna="29" dimension="5" />
+			<campo nombre="denominacion" fila="8" columna="36" dimension="25"/>
+			<campo nombre="numero" fila="6" columna="29" dimension="4" />
+			<campo nombre="bis" fila="6" columna="34" dimension="1" />
+			<campo nombre="numero2" fila="6" columna="36" dimension="4" />
+			<campo nombre="bis2" fila="6" columna="41" dimension="1" />
+			<campo nombre="kilometro" fila="6" columna="43" dimension="9" />
+			<campo nombre="bloque" fila="6" columna="53" dimension="2" />
+			<campo nombre="portal" fila="6" columna="56" dimension="2" />
+			<campo nombre="escalera" fila="6" columna="59" dimension="2" />
+			<campo nombre="planta" fila="6" columna="62" dimension="3" />
+			<campo nombre="puerta" fila="6" columna="59" dimension="4" />
+			<campo nombre="provincia" fila="12" columna="29" dimension="2" />
+			<campo nombre="municipio" fila="13" columna="29" dimension="3" />
+			<campo nombre="codigoPostal" fila="16" columna="29" dimension="5" />
+			<campo nombre="catastralManzana" fila="19" columna="29" dimension="7" />
+			<campo nombre="catastralCentro" fila="19" columna="37" dimension="7" />
+			<campo nombre="catastralCargo" fila="19" columna="45" dimension="4" />
+			<campo nombre="catastralControl1" fila="19" columna="50" dimension="1" />
+			<campo nombre="catastralControl2" fila="19" columna="52" dimension="1" />
+
+		</campos>
+	
+	</pantalla>
+	
+	
+	<pantalla nombre="MantenimientoDomicilioTercero" acceder="enter" salir="enter" pantallasAcceso="DetalleTercero" pantallaSalida="DialogoTercero">
+	
+		<identificador clave="GNDIRMU" fila="0" columna="58" dimension="7"/>
+		
+		<acciones>
+		
+			<accion nombre="guardarDomicilio" clase="com.gestion400.g4genwrapper.acciones.wrapper.GuardarDomicilioWrapper"/>
+		
+		</acciones>
+		
+		<campos>
+			
+			<campo nombre="via" fila="8" columna="29" dimension="5" />
+			<campo nombre="denominacion" fila="8" columna="36" dimension="25"/>
+			<campo nombre="numero" fila="6" columna="29" dimension="4" />
+			<campo nombre="bis" fila="6" columna="34" dimension="1" />
+			<campo nombre="numero2" fila="6" columna="36" dimension="4" />
+			<campo nombre="bis2" fila="6" columna="41" dimension="1" />
+			<campo nombre="kilometro" fila="6" columna="43" dimension="9" />
+			<campo nombre="bloque" fila="6" columna="53" dimension="2" />
+			<campo nombre="portal" fila="6" columna="56" dimension="2" />
+			<campo nombre="escalera" fila="6" columna="59" dimension="2" />
+			<campo nombre="planta" fila="6" columna="62" dimension="3" />
+			<campo nombre="puerta" fila="6" columna="59" dimension="4" />
+			<campo nombre="provincia" fila="12" columna="29" dimension="2" />
+			<campo nombre="municipio" fila="13" columna="29" dimension="3" />
+			<campo nombre="codigoPostal" fila="16" columna="29" dimension="5" />
+			<campo nombre="catastralManzana" fila="19" columna="29" dimension="7" />
+			<campo nombre="catastralCentro" fila="19" columna="37" dimension="7" />
+			<campo nombre="catastralCargo" fila="19" columna="45" dimension="4" />
+			<campo nombre="catastralControl1" fila="19" columna="50" dimension="1" />
+			<campo nombre="catastralControl2" fila="19" columna="52" dimension="1" />
+
+		</campos>
+	
+	</pantalla>
+	
+	
+	<pantalla nombre="DialogoProvincia" acceder="escribir:MPRO, enter" salir="F3" pantallasAcceso="GenMenu" pantallaSalida="GenMenu">
+	
+		<identificador clave="Provincia" fila="4" columna="14" dimension="9"/>
+	
+		<acciones>
+		
+			<accion nombre="guardarProvincia" clase="com.gestion400.g4genwrapper.acciones.wrapper.GuardarProvinciaWrapper"/>
+			<accion nombre="borrarProvincia" clase="com.gestion400.g4genwrapper.acciones.wrapper.BorrarProvinciaWrapper"/>
+			
+		</acciones>
+		
+		<campos>
+		
+			<campo nombre="codigo" fila="4" columna="29" dimension="2" />
+		
+		</campos>
+	
+	</pantalla>
+	
+	
+	<pantalla nombre="DetalleProvincia" acceder="enter" salir="F12" pantallasAcceso="DialogoProvincia" pantallaSalida="DialogoProvincia">
+	
+		<identificador clave="Descripci" fila="8" columna="14" dimension="9"/>
+		
+		<campos>
+		
+			<campo nombre="descripcion" fila="8" columna="29" dimension="25" />
+		
+		</campos>
+	
+	</pantalla>
+	
+	
+	<pantalla nombre="DialogoMunicipio" acceder="escribir:MMUN, enter" salir="F3" pantallasAcceso="GenMenu" pantallaSalida="GenMenu">
+	
+		<identificador clave="Municipio" fila="5" columna="13" dimension="9"/>
+	
+		<acciones>
+		
+			<accion nombre="borrarMunicipio" clase="com.gestion400.g4genwrapper.acciones.wrapper.BorrarMunicipioWrapper"/>
+			<accion nombre="leerMunicipio" clase="com.gestion400.g4genwrapper.acciones.wrapper.LeerMunicipioWrapper"/>
+			<accion nombre="guardarMunicipio" clase="com.gestion400.g4genwrapper.acciones.wrapper.GuardarMunicipioWrapper"/>
+			
+		</acciones>
+		
+		<campos>
+		
+			<campo nombre="codigoProvincia" fila="4" columna="28" dimension="2" />
+			<campo nombre="codigoMunicipio" fila="5" columna="28" dimension="3" />
+		
+		</campos>
+	
+	</pantalla>
+	
+	<pantalla nombre="DetalleMunicipio" acceder="enter" salir="F12" pantallasAcceso="DialogoMunicipio" pantallaSalida="DialogoMunicipio">
+	
+		<identificador clave="Descripci" fila="8" columna="14" dimension="9"/>
+		
+		<campos>
+		
+			<campo nombre="codigoProvincia" fila="4" columna="29" dimension="2" />
+			<campo nombre="codigoMunicipio" fila="5" columna="29" dimension="3" />
+			<campo nombre="descripcion" fila="8" columna="29" dimension="50" />
+			<campo nombre="codigoPostal" fila="16" columna="29" dimension="5" />
+			<campo nombre="digitoControl" fila="23" columna="41" dimension="1" />
+
+		</campos>
+	
+	</pantalla>
+	
+</menu>
+
