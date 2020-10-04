@@ -1,0 +1,189 @@
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	background-color: #007bff;
+	font-size: 1.1rem;
+}
+
+.footer p {
+	margin-top: 12px;
+    margin-bottom: 12px;
+    padding-left: 16px;
+    color: white;
+}
+
+img#logo{
+	max-width: 44%;
+}
+
+div.anuncioTablon {
+	background-color: #EFEFEF;
+	padding: 10px;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+
+div.detalleAnuncios {
+	background-color: #FFF;
+	border: 2px solid #D4D4D4;
+	padding: 10px;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+
+.tituloTablon {
+	width: 100%;
+	text-align: center;
+}
+
+/* ---------- Tablon de anuncios ---------- */
+.divTablonAnuncios {
+	/* 	border: 2px solid #ddd; */
+	min-width: 500px;
+	padding-bottom: 1em;
+	padding-right: 1em;
+	padding-left: 1em;
+	border-radius: 15px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	margin-left: 25px;
+	margin-right: 25px;
+}
+
+.colorBase {
+	color: #E6B012;
+}
+
+.tituloTablon {
+	color: #000000;
+	font-size: 14pt;
+	padding-right: 2px;
+	margin-top: 15px;
+}
+
+.tabTituloTablon {
+	/* 	border: 2px solid #ddd; */
+	background: #fff;
+	top: -1em;
+	color: #AAAAAA;
+	font-size: 16pt;
+	border-radius: 7px;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	border-bottom-right-radius: 7px;
+	border-bottom-left-radius: 7px;
+}
+
+.tabTituloTablon tr {
+	padding: 0px;
+}
+
+#anuncios {
+	width: 100%;
+}
+
+#anuncios tr {
+	padding: 20px;
+	font-size: 12pt;
+}
+
+.asuntoAnuncio {
+	font-size: 16pt;
+	color: #045C93;
+}
+
+.asuntoAnuncioLink {
+	font-size: 16pt;
+	color: #045C93;
+}
+
+.asuntoAnuncioLink:hover {
+	text-shadow: 2px 2px 2px #D3D3D3;
+	text-decoration: underline;
+}
+
+.fechaAnuncio {
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+.ajustar {
+	width: 100%;
+	/* 	float: left; */
+	white-space: pre;
+	white-space: pre-wrap;
+	white-space: pre-line;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -hp-pre-wrap;
+	word-wrap: break-word;
+	font-size: 10pt;
+	height: 60px;
+	max-height: 60px;
+}
+
+.ajustar p {
+	margin-top: -15px;
+	margin-bottom: -15px;
+}
+
+#adjuntos {
+	padding: 10px;
+	border-radius: 15px;
+}
+
+#adjuntos a {
+	color: #369;
+	text-decoration: underline;
+}
+
+#adjuntos a:link, a:visited {
+	color: (internal value);
+	text-decoration: none;
+}
+
+#adjuntos a:hover {
+	text-shadow: 2px 2px 2px #D6D6D6;
+}
+
+#adjuntos th {
+	padding: 5px;
+	text-align: center;
+	border: solid white;
+}
+
+#adjuntos tr {
+	font-size: 12pt;
+}
+
+#adjuntos td {
+	padding: 15px;
+}
+
+#adjuntos thead {
+	background-color: #EEEEEE;
+}
+
+#divAnuncios {
+	overflow-y: auto;
+	font-size: 12pt;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+/* ---------- FIN Tablon de anuncios ---------- */
+
+
+
+#ox_G4GenWrapper_Provincia__view .mdi-delete{
+	
+	display: none;
+}
+
+#ox_G4GenWrapper_Municipio__view .mdi-delete{
+	
+	display: none;
+}

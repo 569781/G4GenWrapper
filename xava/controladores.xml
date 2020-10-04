@@ -1,0 +1,118 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+
+<!DOCTYPE controladores SYSTEM "dtds/controladores.dtd">
+
+<controladores>
+
+	<controlador nombre="Default">
+	
+		<hereda-de controlador="Typical" acciones-excluidas="importData"/>
+		
+	</controlador>
+	
+	<controlador nombre="Anuncios">
+	
+		<accion nombre="IniciarAnuncios" clase="com.gestion400.g4genwrapper.acciones.AlIniciarAnuncios" 
+			al-iniciar="true" en-cada-peticion="true" oculta="true"/>
+		
+	</controlador>
+	
+	<controlador nombre="Wrapper">
+	
+		<hereda-de controlador="Default"/>
+	
+		<accion nombre="IniciarWrapper" clase="com.gestion400.g4genwrapper.acciones.AlIniciarWraper" 
+			al-iniciar="true" en-cada-peticion="true" oculta="true"/>
+	
+	</controlador>
+	
+	<controlador nombre="ManyToMany">
+    
+    	<accion nombre="add" imagen="create_new.gif"
+			icono="table-row-plus-after"
+			clase="com.gestion400.g4genwrapper.acciones.ManyToManyGoAddElementsToCollectionAction">
+			<poner valor="ManyToManyAddDialog" propiedad="nextController"/>
+		</accion>
+						
+		<accion nombre="removeSelected" confirmar="true" icono="delete" 
+			imagen="delete.gif" en-cada-fila="true"
+			clase="com.gestion400.g4genwrapper.acciones.ManyToManyRemoveSelectedInCollectionAction"/>
+		
+	</controlador>
+	
+	<controlador nombre="ManyToManyAddDialog">
+		<accion nombre="add" clase="com.gestion400.g4genwrapper.acciones.ManyToManyAddElementsToCollectionAction"/>				
+		<accion nombre="cancel" clase="org.openxava.actions.CancelFromCustomListAction"/>
+	</controlador>
+	
+	<controlador nombre="usuario">
+	
+		<hereda-de controlador="Default"/>
+		
+		<accion nombre="abrirDialogoRestablecerPassword" modo="detail" icono="key"
+			clase="com.gestion400.g4genwrapper.acciones.AbrirDialogoAction" por-defecto="casi-nunca">
+		
+			<poner propiedad="controlador" valor="restablecerPasswordController"/>
+			<poner propiedad="modelo" valor="Dialogo"/>
+			<poner propiedad="vista" valor="restablecerPassword"/>
+		
+		</accion>
+		
+	</controlador>
+	
+	<controlador nombre="restablecerPasswordController">
+	
+		<accion nombre="restablecerPassword" clase="com.gestion400.g4genwrapper.acciones.RestablecerPassword"/>
+		
+		<accion nombre="cancel" clase="org.openxava.actions.CancelDialogAction" />
+	
+	</controlador>
+	
+	<controlador nombre="TerceroController">
+	
+		<hereda-de controlador="Wrapper"/>
+	
+		<accion nombre="buscarTercero" clase="com.gestion400.g4genwrapper.acciones.BuscarTercero" oculta="true"/>
+	
+		<accion nombre="save" clase="com.gestion400.g4genwrapper.acciones.GuardarTercero" modo="detail" icono="content-save" por-defecto="si-posible" atajo-de-teclado="Control S">
+		
+			<poner valor="false" propiedad="resetAfter"/>
+			
+		</accion>
+		
+		<accion nombre="delete" modo="detail" confirmar="true" clase="com.gestion400.g4genwrapper.acciones.BorrarTercero" imagen="delete.gif" disponible-en-nuevo="false" icono="delete" atajo-de-teclado="Control D"/>
+	
+	</controlador>
+	
+	
+	<controlador nombre="ProvinciaController">
+	
+		<hereda-de controlador="Wrapper"/>
+	
+		<accion nombre="save" clase="com.gestion400.g4genwrapper.acciones.GuardarProvincia" modo="detail" icono="content-save" por-defecto="si-posible" atajo-de-teclado="Control S">
+		
+			<poner valor="false" propiedad="resetAfter"/>
+			
+		</accion>
+		
+	    <accion nombre="delete" modo="detail" confirmar="true" clase="com.gestion400.g4genwrapper.acciones.BorrarProvincia" imagen="delete.gif" disponible-en-nuevo="false" icono="delete" atajo-de-teclado="Control D"/>
+			
+	</controlador>
+	
+	<controlador nombre="MunicipioController">
+	
+		<hereda-de controlador="Wrapper"/>
+		
+		<accion nombre="buscarMunicipio" clase="com.gestion400.g4genwrapper.acciones.BuscarMunicipio" oculta="true"/>
+	
+		<accion nombre="save" clase="com.gestion400.g4genwrapper.acciones.GuardarMunicipio" modo="detail" icono="content-save" por-defecto="si-posible" atajo-de-teclado="Control S">
+		
+			<poner valor="false" propiedad="resetAfter"/>
+			
+		</accion>
+		
+	    <accion nombre="delete" modo="detail" confirmar="true" clase="com.gestion400.g4genwrapper.acciones.BorrarMunicipio" imagen="delete.gif" disponible-en-nuevo="false" icono="delete" atajo-de-teclado="Control D"/>
+			
+	</controlador>
+	
+</controladores>
