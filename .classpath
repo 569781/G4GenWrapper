@@ -16,5 +16,6 @@
 	<classpathentry kind="lib" path="web/WEB-INF/lib/addons.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/openxava.jar"/>
 	<classpathentry kind="lib" path="web/WEB-INF/lib/GSWrapper.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/OpenXava"/>
 	<classpathentry kind="output" path="web/WEB-INF/classes"/>
 </classpath>
