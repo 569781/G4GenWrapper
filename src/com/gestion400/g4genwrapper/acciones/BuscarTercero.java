@@ -37,10 +37,6 @@ public class BuscarTercero extends WrapperSearchAction {
 		
 		if(terceroWrapper != null) {
 			
-			int codigoNaturaleza = Condition.evalNotEmpty(terceroWrapper.getCodigoNaturaleza(), 0);
-			
-			if(codigoNaturaleza > 0) codigoNaturaleza = codigoNaturaleza - 1;
-			
 			View view = getView();
 			
 			viewUtil.setValue(view, "nombre", terceroWrapper.getNombre());	
@@ -49,7 +45,7 @@ public class BuscarTercero extends WrapperSearchAction {
 			viewUtil.setValue(view, "telefono", terceroWrapper.getTelefono());
 			viewUtil.setValue(view, "email", terceroWrapper.getEmail());
 			viewUtil.setValue(view, "pais.codigo", terceroWrapper.getCodigoPais());
-			viewUtil.setValue(view, "naturaleza", Naturaleza.values()[codigoNaturaleza]);
+			viewUtil.setValue(view, "naturaleza", getNaturalezaTercero(terceroWrapper));
 			
 			setFecha("fechaAlta", terceroWrapper.getFechaAltaString());
 			setFecha("fechaBaja", terceroWrapper.getFechaBajaString());
@@ -57,6 +53,17 @@ public class BuscarTercero extends WrapperSearchAction {
 			
 			setValoresDomicilio(terceroWrapper.getDomicilio());
 		}
+	}
+	
+	private Naturaleza getNaturalezaTercero(Tercero terceroWrapper) {
+		
+		Naturaleza naturaleza = Naturaleza.NIF;
+		
+		int codigoNaturaleza = Condition.evalNotEmpty(terceroWrapper.getCodigoNaturaleza(), 0);
+		
+		if(codigoNaturaleza > 0 && Naturaleza.values().length >= codigoNaturaleza) naturaleza =  Naturaleza.values()[codigoNaturaleza - 1];
+		
+		return naturaleza;
 	}
 	
 	private static final String KEY_DOMICILIO = "domicilio.";
@@ -122,11 +129,9 @@ public class BuscarTercero extends WrapperSearchAction {
 			
 			viewUtil.setValue(getView(), KEY_DOMICILIO + "provincia.codigo", codigoProvincia);
 			
-			viewUtil.setValue(getView(), KEY_DOMICILIO + "municipio.provincia.codigo", codigoProvincia);
+			viewUtil.setValue(getView(), KEY_DOMICILIO + "municipio.codigoProvincia", codigoProvincia);
 			
 			viewUtil.setValue(getView(), KEY_DOMICILIO + "municipio.codigo", codigoMunicipio);
-			
-			System.out.println(getView().getAllValues());
 		}
 	}
 }

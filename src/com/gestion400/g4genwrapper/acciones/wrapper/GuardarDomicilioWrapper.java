@@ -46,11 +46,9 @@ public class GuardarDomicilioWrapper extends AccionBase<Domicilio, Domicilio>{
 		
 		escribir(Strings.fix(domicilio.getDenominacion(), 25, Align.LEFT));
 		
-		escribir(Strings.fix(getValueStrign(domicilio.getProvincia().getCodigo()), 2, Align.RIGHT, '0'), 4);
+		escribirInformacionProvincia(domicilio);
 		
-		escribir(Strings.fix(getValueStrign(domicilio.getMunicipio().getCodigo()), 3, Align.RIGHT, '0'));
-		
-		escribir(Strings.fix(domicilio.getMunicipio().getDescripcion(), 50, Align.LEFT));
+		escribirInformacionMunicipio(domicilio);
 		
 		escribir(Strings.fix(getValueStrign(domicilio.getCodigoPostal()) , 5, Align.RIGHT, '0'));
 		
@@ -67,6 +65,37 @@ public class GuardarDomicilioWrapper extends AccionBase<Domicilio, Domicilio>{
 		getWrapper().leerPantalla();
 		
 		return domicilio;
+	}
+	
+	private void escribirInformacionProvincia(Domicilio domicilio) {
+		
+		String codigoProvincia = "0";
+		
+		if(domicilio.getProvincia() != null) {
+			
+			codigoProvincia = getValueStrign(domicilio.getProvincia().getCodigo());
+		}
+		
+		escribir(Strings.fix(codigoProvincia, 2, Align.RIGHT, '0'), 4);
+	}
+	
+	
+	private void escribirInformacionMunicipio(Domicilio domicilio) {
+		
+		String codigoMunicipio = "0";
+		
+		String descripcionMunicipio = "";
+		
+		if(domicilio.getMunicipio() != null) {
+			
+			codigoMunicipio = getValueStrign(domicilio.getMunicipio().getCodigo());
+			
+			descripcionMunicipio = getValueStrign(domicilio.getMunicipio().getDescripcion());
+		}
+		
+		escribir(Strings.fix(codigoMunicipio, 3, Align.RIGHT, '0'));
+		
+		escribir(Strings.fix(descripcionMunicipio, 50, Align.LEFT));
 	}
 	
 	private String getValueStrign(Object valor) {
