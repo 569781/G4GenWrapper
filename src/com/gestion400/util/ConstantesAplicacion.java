@@ -1,7 +1,5 @@
 package com.gestion400.util;
 
-import java.text.*;
-
 public interface ConstantesAplicacion {
 	
 	public static final String ESQUEMA_APLICACION = "G4GENWRAPPER";
@@ -25,10 +23,6 @@ public interface ConstantesAplicacion {
 	public static final String RUTA_PAGINA_LOGIN = "/" + NOMBRE_APLICACION + PAGINA_LOGIN;
 	
 	public static final String TAG_TABLON = "tablon_anuncios";
-	
-	public static final DateFormat FORMATO_FECHA_ANUNCIO = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-	
-	public static final DateFormat FORMATO_FECHA_AS400 = new SimpleDateFormat("dd.MM.yyyy");
 	
 	public static final String PATH_EMULADOR = "../../windows/ws3270.exe";
 	

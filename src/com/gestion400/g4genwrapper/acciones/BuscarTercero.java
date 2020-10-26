@@ -1,16 +1,20 @@
 package com.gestion400.g4genwrapper.acciones;
 
-import java.text.*;
-import java.util.*;
+import java.text.ParseException;
+import java.util.Date;
 
-import org.openxava.view.*;
+import org.openxava.view.View;
 
-import com.gestion400.dao.*;
-import com.gestion400.g4genwrapper.modelo.*;
-import com.gestion400.g4genwrapper.modelo.Tercero.*;
-import com.gestion400.util.*;
-import com.gswrapper.modelo.wrapper.*;
-import com.gswrapper.util.*;
+import com.gestion400.dao.MunicipioDao;
+import com.gestion400.dao.TerceroDao;
+import com.gestion400.g4genwrapper.modelo.Domicilio;
+import com.gestion400.g4genwrapper.modelo.Municipio;
+import com.gestion400.g4genwrapper.modelo.Tercero;
+import com.gestion400.g4genwrapper.modelo.Tercero.Naturaleza;
+import com.gestion400.util.DateFormats;
+import com.gestion400.util.ViewUtil;
+import com.gswrapper.modelo.wrapper.GSAWrapper3270;
+import com.gswrapper.util.Condition;
 
 public class BuscarTercero extends WrapperSearchAction {
 	
@@ -106,7 +110,7 @@ public class BuscarTercero extends WrapperSearchAction {
 			
 			try {
 				
-				fecha = ConstantesAplicacion.FORMATO_FECHA_AS400.parse(fechaString);
+				fecha = DateFormats.FORMATO_FECHA_AS400.parse(fechaString);
 				
 			} catch (ParseException e) {
 				

@@ -82,6 +82,7 @@ public class Anuncio {
 	}
 	
 	public String getFechaAnuncio() {
-		return ConstantesAplicacion.FORMATO_FECHA_ANUNCIO.format(fechaDePublicacion);
+		
+		return DateFormats.FORMATO_FECHA_ANUNCIO.format(fechaDePublicacion);
 	}
 }

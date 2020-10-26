@@ -8,21 +8,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.openxava.jpa.XPersistence;
 import org.openxava.util.Is;
 import org.openxava.validators.ValidationException;
 
-import com.gestion400.dao.*;
-import com.gestion400.http.LoginBean.*;
+import com.gestion400.dao.UsuarioDao;
+import com.gestion400.http.LoginBean.AuthenticationError;
 import com.gestion400.http.Response;
-import com.gestion400.util.*;
+import com.gestion400.util.ConstantesAplicacion;
+import com.gestion400.util.PasswordUtil;
+import com.gestion400.util.ServletUtil;
 import com.gestion400.util.ServletUtil.Method;
-import com.gestion400.wizard.*;
+import com.gestion400.util.UsuarioUtil;
+import com.gestion400.wizard.Usuario;
 
 @WebServlet(name = "login", urlPatterns = LoginServlet.URL_SERVLET)
 public class LoginServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
+	
+	private static final Logger log = Logger.getLogger(LoginServlet.class);
 	
 	public static final String URL_SERVLET = "/servlet/Login";
 	
@@ -37,8 +43,6 @@ public class LoginServlet extends HttpServlet {
 
 		try {
 			
-			System.out.println("LoginServlet");
-			
 			login(request, response);
 			
 		} catch (ValidationException e) {
@@ -47,7 +51,7 @@ public class LoginServlet extends HttpServlet {
 			
 		} catch (Exception ex) {
 			
-			ex.printStackTrace();
+			log.error("", ex);
 			
 			redireccionarPaginaLogin(response, AuthenticationError.SERVER);
 			
