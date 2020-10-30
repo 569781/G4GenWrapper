@@ -26,17 +26,14 @@ public class Municipio implements Serializable{
 	}
 	
 	@Id
-	@Column(name = "PROVINCIA", length = 3)
-	private int codigoProvincia;
-	
-	@Id
 	@Column(name = "CODIGO", length = 3)
 	private int codigo;
 	
+	@Id
 	@NoCreate @NoModify
 	@DescriptionsList(descriptionProperties = "descripcion")
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PROVINCIA", referencedColumnName = "CODIGO", insertable = false, updatable = false)
+	@JoinColumn(name = "PROVINCIA", referencedColumnName = "CODIGO")
 	private Provincia provincia;
 	
 	@GSACampo("descripcion")
@@ -101,13 +98,5 @@ public class Municipio implements Serializable{
 
 	public void setEliminado(boolean eliminado) {
 		this.eliminado = eliminado;
-	}
-
-	public int getCodigoProvincia() {
-		return codigoProvincia;
-	}
-
-	public void setCodigoProvincia(int codigoProvincia) {
-		this.codigoProvincia = codigoProvincia;
 	}
 }

@@ -80,8 +80,9 @@ public class Domicilio {
 	@NoCreate @NoModify @Required
 	@DescriptionsList(depends = "domicilio.provincia.codigo", condition = "${provincia.codigo} = ?")
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumns({ @JoinColumn(name = "MUNICIPIO", referencedColumnName = "CODIGO"),
-			@JoinColumn(name = "PROVINCIA", referencedColumnName = "PROVINCIA") })
+	@JoinColumns({ @JoinColumn(name = "PROVINCIA", referencedColumnName = "PROVINCIA"),
+				@JoinColumn(name = "MUNICIPIO", referencedColumnName = "CODIGO")
+	})
 	private Municipio municipio;
 	
 	@GSACampo("municipio")
